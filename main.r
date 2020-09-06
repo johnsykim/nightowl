@@ -89,3 +89,33 @@ locationTime <- data.frame("F1" = Avg_Usage_F1, "F2" = Avg_Usage_F2, "F3" = Avg_
 \author{Harry Choi, John Kim, Alex Lee, Lauren Su}
 \date{Dec 1, 2016}
 \maketitle
+
+
+
+%-------------------------INTRODUCTION-----------------------------
+
+\section{1. Introduction}
+
+\subsection{\textbf{1.1 Motivation}}
+
+Claremont Colleges Library (CCL hereinafter) serves the Claremont Colleges, a consortium composed of five undergraduate and two graduate schools of higher education. Ranking third among the private institutions in California, behind only Stanford and USC, CCL is clearly a noteworthy example of institutional cooperation. At the same time, it is definitely larger than any of the seven schools could afford to own on its own. Therefore optimizing library management under resource constraints is a high priority for CCL.\\
+
+When our team was asked to provide insights drawn from data analysis, we began by focusing on final examination period during academic year. Some advantages of looking into exam period are:
+\begin{itemize}
+  \item Finals week is a specific time period that occurs twice every academic year (fall and spring semesters), so data pattern recognition is possible.
+  \item CCL operates 24 hours as opposed to regular hours throughout a semester. (17 hours Mon-Thur; 14 hours Fri; 11 hours Sat; 16 hours Sun)
+  \item Finals week is presumably time of the year when the library resources are most utilized by students, so analytical insights can lead to effective library management.
+  \item Finals week is a part of academic calendar that is planned out years in advance, so data prediction is possible.
+\end{itemize}
+
+Our research interest lies in the following questions:
+
+\begin{itemize}
+\item What kind of students study during the night hours? Where do they study? 
+\item What behaviors do students indicate during finals week? What factors do they take into account?
+\item Can we predict the study habits and library resource usage of a single student? 
+\end{itemize}
+
+To address these questions, the report employs various statistical techniques to assess and interpret the given dataset $Data_{201605}$. First, the report provides a brief description of the data and conducts an exploratory analysis. Basic plots such as boxplot and scatter plot are included to see the appropriateness of the fitted linear model. Second, the report introduces various statistical models and tests that are used in the actual analysis of the dataset. Third, the report conducts a thorough statistical anlysis. In particular, regression diagnostics comes in useful as the resulting statistics give an overall characterization of the measurements and evaluate feasibility of the fitted model. Finally, the report concludes by tying back the analytical results to the aforementioned questions.
+
+\pagebreak
