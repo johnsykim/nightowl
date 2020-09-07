@@ -119,3 +119,36 @@ Our research interest lies in the following questions:
 To address these questions, the report employs various statistical techniques to assess and interpret the given dataset $Data_{201605}$. First, the report provides a brief description of the data and conducts an exploratory analysis. Basic plots such as boxplot and scatter plot are included to see the appropriateness of the fitted linear model. Second, the report introduces various statistical models and tests that are used in the actual analysis of the dataset. Third, the report conducts a thorough statistical anlysis. In particular, regression diagnostics comes in useful as the resulting statistics give an overall characterization of the measurements and evaluate feasibility of the fitted model. Finally, the report concludes by tying back the analytical results to the aforementioned questions.
 
 \pagebreak
+
+%-------------------------DATA-------------------------------------
+
+\section{2. Data}
+
+\subsection{\textbf{2.1 Data Description}}
+
+The $Data_{201605}$ that we are using is a data that describes the wifi usage at the Honnold-Mudd Library across the entire month of May. The data measures each connection to the wifi router and featuers all these various aspect of the single connection described in Figure~\ref{fig:Variables}:
+
+\begin{figure}[ht!]
+\begin{center}
+	\includegraphics[width=11cm]{variables.JPG}
+    \caption{Names of variables in data_201605 dataset}
+	\label{fig:Variables}
+\end{center}
+\end{figure}
+
+The variables above can be categorized into several different types. Namely,
+
+\begin{itemize}
+\item \textbf{Categorical}: Campus, Role, Device_Name, Group, Folder, Device_Location, Vendor, Connection_Mode, Device_Type, Manufacturer, Model, OS
+\item \textbf{Numeric}
+  \begin{itemize}
+    \item \textbf{Integer}: Connect_Year, Connect_Month, Connect_Day, Connect_Hour, Connect_Minute, Connect_Second, Connect_DW, Connect_DY, TT, TT_In, TT_Out, Avg_Usage, Avg_Signal, Avg_Signal_Quality
+    \item \textbf{Double}: Connect_DST, Disconnect_Time, Duration
+  \end{itemize}
+\end{itemize}
+
+In our study, we decide to study the efficiency of opening up the library 24/7 during Finals, which is known as the \textit{Night Owl} program. Therefore, of the May data, we parse out the days that correlate the Finals period, namely May $4^{th}$ to $12^{th}$. Of this time, too, we decide to focus on the Night Owl hours of finals week, since that is the unique pattern that sets the finals week aside from the \\.
+
+This means that we will make heavy use of the Connect_Hour variable, which signifies the start time of a connection. We can look at how many students there are per connection hour, but we can also use it convineintly divide the data into regular hours and nightowl hour to determine the difference in other parameters such as the location of the connection. \\
+
+In our study, we mainly use the \textit{Campus} variable -- the school afilliation -- \textit{Device_Location}, the location of connection, \textit{Avg_Usage}, the mean of the traffic of a connection, and \textit{Duration}, the duration of a single connection. 
