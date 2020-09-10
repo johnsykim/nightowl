@@ -152,3 +152,104 @@ In our study, we decide to study the efficiency of opening up the library 24/7 d
 This means that we will make heavy use of the Connect_Hour variable, which signifies the start time of a connection. We can look at how many students there are per connection hour, but we can also use it convineintly divide the data into regular hours and nightowl hour to determine the difference in other parameters such as the location of the connection. \\
 
 In our study, we mainly use the \textit{Campus} variable -- the school afilliation -- \textit{Device_Location}, the location of connection, \textit{Avg_Usage}, the mean of the traffic of a connection, and \textit{Duration}, the duration of a single connection. 
+
+
+\subsection{\textbf{2.2 Exploratory Data Analysis}}
+
+First we look at a simple histogram to see how much people use the library at night owl hours during the finals week: 
+
+<<echo = FALSE, out.width='4in', fig.align='center', fig.show='hold'>>=
+
+hist(mayFinalsData$Connect_Hour, main = "Connect Hour for Finals Week", xlab = "Hour")
+@
+
+From a histogram, we see that the connection peaks around midday, and after 1am, when the night owls program starts, the connection frequency drops by a lot. This justifies our motivation to study the finals week: clearly, the library usage during the special hours are extremely low and we want to see if we can optimize the library resources; usage is low, so perhaps we could leave the library open in only certain locations? If a certain campus uses more night owl hours, is that indicative of poor resources at their home insitution? 
+
+<<echo = FALSE, out.width='3in', fig.align='center', fig.show='hold'>>=
+nightO <- read.csv("D:\\C\\ThisShitisFuckingAnnoying\\R data\\Honnold Data\\rawWifi2016\\mayData\\foo.csv",
+                    header=TRUE)
+
+day<-mayFinalsData[ !(mayFinalsData %in% nightO), ]
+
+
+pom <- sum(with(day, Campus == "pomona"))
+cmc <- sum(with(day, Campus == "cmc"))
+scr <- sum(with(day, Campus == "scripps"))
+hmc <- sum(with(day, Campus == "hmc"))
+pit <- sum(with(day, Campus == "pitzer"))
+cgu <- sum(with(day, Campus == "cgu"))
+kgi <- sum(with(day, Campus == "kgi"))
+cuc <- sum(with(day, Campus == "cuc"))
+
+
+lbls <- c("Pomona", "CMC", "Scripps", "HMC", "Pitzer", "CGU", "KGI", "CUC")
+slices<- c(pom, cmc, scr, hmc, pit, cgu, kgi, cuc)
+
+
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels 
+lbls <- paste(lbls,"%",sep="") # ad % to labels 
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="Library network entries by institution")
+
+
+#night owl
+pom <- sum(with(nightO, Campus == "pomona"))
+cmc <- sum(with(nightO, Campus == "cmc"))
+scr <- sum(with(nightO, Campus == "scripps"))
+hmc <- sum(with(nightO, Campus == "hmc"))
+pit <- sum(with(nightO, Campus == "pitzer"))
+cgu <- sum(with(nightO, Campus == "cgu"))
+kgi <- sum(with(nightO, Campus == "kgi"))
+cuc <- sum(with(nightO, Campus == "cuc"))
+
+
+lbls <- c("Pomona", "CMC", "Scripps", "HMC", "Pitzer", "CGU", "KGI", "CUC")
+slices<- c(pom, cmc, scr, hmc, pit, cgu, kgi, cuc)
+
+
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels 
+lbls <- paste(lbls,"%",sep="") # ad % to labels 
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="Library network entries by institution (Night owl)")
+@
+
+We can also look at locations used in the library depending on normal hours and night owl data:
+
+<<echo = FALSE, out.width='3in', fig.align='center', fig.show='hold'>>=
+
+F1 <- sum(with(mayFinalsData, Folder == "1F"))
+F2 <- sum(with(mayFinalsData, Folder == "2F"))
+F3 <- sum(with(mayFinalsData, Folder == "3F"))
+F4 <- sum(with(mayFinalsData, Folder == "4F"))
+Cafe <- sum(with(mayFinalsData, Folder == "Cafe"))
+
+lbls <- c("1F", "2F", "3F", "4F", "Cafe")
+slices <- c(F1, F2, F3, F4, Cafe)
+
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels 
+lbls <- paste(lbls,"%",sep="") # ad % to labels 
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="Library network entries by location")
+
+  nightO <- read.csv("D:\\C\\ThisShitisFuckingAnnoying\\R data\\Honnold Data\\rawWifi2016\\mayData\\foo.csv",
+                     header=TRUE)  
+  day<-mayFinalsData[ !(mayFinalsData %in% nightO), ]
+
+  F1 <- sum(with(nightO, Folder == "1F"))
+  F2 <- sum(with(nightO, Folder == "2F"))
+  F3 <- sum(with(nightO, Folder == "3F"))
+  F4 <- sum(with(nightO, Folder == "4F"))
+  Cafe <- sum(with(nightO, Folder == "Cafe"))
+  
+  lbls <- c("1F", "2F", "3F", "4F", "Cafe")
+  slices <- c(F1, F2, F3, F4, Cafe)
+  
+  pct <- round(slices/sum(slices)*100)
+  lbls <- paste(lbls, pct) # add percents to labels 
+  lbls <- paste(lbls,"%",sep="") # ad % to labels 
+  pie(slices,labels = lbls, col=rainbow(length(lbls)),
+      main="Library network entries by location (Night Owls)")
+@
