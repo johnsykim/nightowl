@@ -253,3 +253,105 @@ pie(slices,labels = lbls, col=rainbow(length(lbls)),
   pie(slices,labels = lbls, col=rainbow(length(lbls)),
       main="Library network entries by location (Night Owls)")
 @
+
+%Lauren
+To explore this data, we constructed pie charts to examine the individuals using the library internet broken down by campus during finals season. We were interested in comparing if these results would be different during the typical library hours, from 8 AM to 1 AM, and Night Owl hours that are open solely during finals season from 1 AM to 8 AM. During regular library hours, we found that Scripps students had the highest percentage of connections, 23$\%$, followed by Pitzer, Claremont McKenna and Claremont Graduate University each at 18$\%$. Pomona students accounted for 12$\%$, followed by CUC, KGI, and Harvey Mudd. When we compared these values to those from Night Owl hours, we did not see any significant changes, and overall trends were maintained. \\
+
+We next broke down the individuals occupying each floor during finals week by campus to determine whether some floors tended to be used by certain schools. 
+
+<<echo = FALSE, out.width='3in', fig.align='center', fig.show='hold'>>=
+#{r floor 1 by hr}
+day$Folder<-sub("Top > CUC > Honold Mudd Library > First Floor", "1F", day$Folder)
+day$Folder<-sub("Top > CUC > Honold Mudd Library > Second Floor", "2F", day$Folder)
+day$Folder<-sub("Top > CUC > Honold Mudd Library > Third Floor", "3F", day$Folder)
+day$Folder<-sub("Top > CUC > Honold Mudd Library > Fourth Floor", "4F", day$Folder)
+
+
+nightO$Folder<-sub("Top > CUC > Honold Mudd Library > First Floor", "1F", nightO$Folder)
+nightO$Folder<-sub("Top > CUC > Honold Mudd Library > Second Floor", "2F", nightO$Folder)
+nightO$Folder<-sub("Top > CUC > Honold Mudd Library > Third Floor", "3F", nightO$Folder)
+nightO$Folder<-sub("Top > CUC > Honold Mudd Library > Fourth Floor", "4F", nightO$Folder)
+
+
+pom<-sum(with(day,Campus=="pomona"&Folder=="1F"))
+cmc<-sum(with(day,Campus=="cmc"&Folder=="1F"))
+scr<-sum(with(day,Campus=="scripps"&Folder=="1F"))
+hmc<-sum(with(day,Campus=="hmc"&Folder=="1F"))
+pit<-sum(with(day,Campus=="pitzer"&Folder=="1F"))
+cgu<-sum(with(day,Campus=="cgu"&Folder=="1F"))
+kgi<-sum(with(day,Campus=="kgi"&Folder=="1F"))
+cuc<-sum(with(day,Campus=="cuc"&Folder=="1F"))
+
+
+lbls <- c("Pomona", "CMC", "Scripps", "HMC", "Pitzer", "CGU", "KGI", "CUC")
+slices<- c(pom, cmc, scr, hmc, pit, cgu, kgi, cuc)
+
+
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels 
+lbls <- paste(lbls,"%",sep="") # ad % to labels 
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="Floor 1 by institution day")
+
+
+pom<-sum(with(nightO,Campus=="pomona"&Folder=="1F"))
+cmc<-sum(with(nightO,Campus=="cmc"&Folder=="1F"))
+scr<-sum(with(nightO,Campus=="scripps"&Folder=="1F"))
+hmc<-sum(with(nightO,Campus=="hmc"&Folder=="1F"))
+pit<-sum(with(nightO,Campus=="pitzer"&Folder=="1F"))
+cgu<-sum(with(nightO,Campus=="cgu"&Folder=="1F"))
+kgi<-sum(with(nightO,Campus=="kgi"&Folder=="1F"))
+cuc<-sum(with(nightO,Campus=="cuc"&Folder=="1F"))
+
+
+lbls <- c("Pomona", "CMC", "Scripps", "HMC", "Pitzer", "CGU", "KGI", "CUC")
+slices<- c(pom, cmc, scr, hmc, pit, cgu, kgi, cuc)
+
+
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels 
+lbls <- paste(lbls,"%",sep="") # ad % to labels 
+pie(slices,labels = lbls, col=rainbow(length(lbls)), main="Floor 1 by institution night")
+
+
+#{r floor 2 by hr}
+pom<-sum(with(day,Campus=="pomona"&Folder=="2F"))
+cmc<-sum(with(day,Campus=="cmc"&Folder=="2F"))
+scr<-sum(with(day,Campus=="scripps"&Folder=="2F"))
+hmc<-sum(with(day,Campus=="hmc"&Folder=="2F"))
+pit<-sum(with(day,Campus=="pitzer"&Folder=="2F"))
+cgu<-sum(with(day,Campus=="cgu"&Folder=="2F"))
+kgi<-sum(with(day,Campus=="kgi"&Folder=="2F"))
+cuc<-sum(with(day,Campus=="cuc"&Folder=="2F"))
+
+
+lbls <- c("Pomona", "CMC", "Scripps", "HMC", "Pitzer", "CGU", "KGI", "CUC")
+slices<- c(pom, cmc, scr, hmc, pit, cgu, kgi, cuc)
+
+
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels 
+lbls <- paste(lbls,"%",sep="") # ad % to labels 
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="Floor 2 by institution day")
+
+
+pom<-sum(with(nightO,Campus=="pomona"&Folder=="2F"))
+cmc<-sum(with(nightO,Campus=="cmc"&Folder=="2F"))
+scr<-sum(with(nightO,Campus=="scripps"&Folder=="2F"))
+hmc<-sum(with(nightO,Campus=="hmc"&Folder=="2F"))
+pit<-sum(with(nightO,Campus=="pitzer"&Folder=="2F"))
+cgu<-sum(with(nightO,Campus=="cgu"&Folder=="2F"))
+kgi<-sum(with(nightO,Campus=="kgi"&Folder=="2F"))
+cuc<-sum(with(nightO,Campus=="cuc"&Folder=="2F"))
+
+
+lbls <- c("Pomona", "CMC", "Scripps", "HMC", "Pitzer", "CGU", "KGI", "CUC")
+slices<- c(pom, cmc, scr, hmc, pit, cgu, kgi, cuc)
+
+
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels 
+lbls <- paste(lbls,"%",sep="") # ad % to labels 
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="Floor 2 by institution night")
