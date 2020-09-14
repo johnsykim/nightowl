@@ -355,3 +355,89 @@ lbls <- paste(lbls, pct) # add percents to labels
 lbls <- paste(lbls,"%",sep="") # ad % to labels 
 pie(slices,labels = lbls, col=rainbow(length(lbls)),
     main="Floor 2 by institution night")
+
+
+#{r floor 3 by hr}
+pom<-sum(with(day,Campus=="pomona"&Folder=="3F"))
+cmc<-sum(with(day,Campus=="cmc"&Folder=="3F"))
+scr<-sum(with(day,Campus=="scripps"&Folder=="3F"))
+hmc<-sum(with(day,Campus=="hmc"&Folder=="3F"))
+pit<-sum(with(day,Campus=="pitzer"&Folder=="3F"))
+cgu<-sum(with(day,Campus=="cgu"&Folder=="3F"))
+kgi<-sum(with(day,Campus=="kgi"&Folder=="3F"))
+cuc<-sum(with(day,Campus=="cuc"&Folder=="3F"))
+
+
+lbls <- c("Pomona", "CMC", "Scripps", "HMC", "Pitzer", "CGU", "KGI", "CUC")
+slices<- c(pom, cmc, scr, hmc, pit, cgu, kgi, cuc)
+
+
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels 
+lbls <- paste(lbls,"%",sep="") # ad % to labels 
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="Floor 3 by institution day")
+
+
+pom<-sum(with(nightO,Campus=="pomona"&Folder=="3F"))
+cmc<-sum(with(nightO,Campus=="cmc"&Folder=="3F"))
+scr<-sum(with(nightO,Campus=="scripps"&Folder=="3F"))
+hmc<-sum(with(nightO,Campus=="hmc"&Folder=="3F"))
+pit<-sum(with(nightO,Campus=="pitzer"&Folder=="3F"))
+cgu<-sum(with(nightO,Campus=="cgu"&Folder=="3F"))
+kgi<-sum(with(nightO,Campus=="kgi"&Folder=="3F"))
+cuc<-sum(with(nightO,Campus=="cuc"&Folder=="3F"))
+
+
+lbls <- c("Pomona", "CMC", "Scripps", "HMC", "Pitzer", "CGU", "KGI", "CUC")
+slices<- c(pom, cmc, scr, hmc, pit, cgu, kgi, cuc)
+
+
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels 
+lbls <- paste(lbls,"%",sep="") # ad % to labels 
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="Floor 3 by institution night")
+
+
+#{r floor 4 by hr}
+pom<-sum(with(day,Campus=="pomona"&Folder=="4F"))
+cmc<-sum(with(day,Campus=="cmc"&Folder=="4F"))
+scr<-sum(with(day,Campus=="scripps"&Folder=="4F"))
+hmc<-sum(with(day,Campus=="hmc"&Folder=="4F"))
+pit<-sum(with(day,Campus=="pitzer"&Folder=="4F"))
+cgu<-sum(with(day,Campus=="cgu"&Folder=="4F"))
+kgi<-sum(with(day,Campus=="kgi"&Folder=="4F"))
+cuc<-sum(with(day,Campus=="cuc"&Folder=="4F"))
+
+
+lbls <- c("Pomona", "CMC", "Scripps", "HMC", "Pitzer", "CGU", "KGI", "CUC")
+slices<- c(pom, cmc, scr, hmc, pit, cgu, kgi, cuc)
+
+
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels 
+lbls <- paste(lbls,"%",sep="") # ad % to labels 
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="Floor 4 by institution day")
+
+
+pom<-sum(with(nightO,Campus=="pomona"&Folder=="4F"))
+cmc<-sum(with(nightO,Campus=="cmc"&Folder=="4F"))
+scr<-sum(with(nightO,Campus=="scripps"&Folder=="4F"))
+hmc<-sum(with(nightO,Campus=="hmc"&Folder=="4F"))
+pit<-sum(with(nightO,Campus=="pitzer"&Folder=="4F"))
+cgu<-sum(with(nightO,Campus=="cgu"&Folder=="4F"))
+kgi<-sum(with(nightO,Campus=="kgi"&Folder=="4F"))
+cuc<-sum(with(nightO,Campus=="cuc"&Folder=="4F"))
+
+
+lbls <- c("Pomona", "CMC", "Scripps", "HMC", "Pitzer", "CGU", "KGI", "CUC")
+slices<- c(pom, cmc, scr, hmc, pit, cgu, kgi, cuc)
+
+
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels 
+lbls <- paste(lbls,"%",sep="") # ad % to labels 
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="Floor 4 by institution night")
