@@ -441,3 +441,54 @@ lbls <- paste(lbls, pct) # add percents to labels
 lbls <- paste(lbls,"%",sep="") # ad % to labels 
 pie(slices,labels = lbls, col=rainbow(length(lbls)),
     main="Floor 4 by institution night")
+
+@
+
+During the regular library hours, we found that the breakdown by campus for each floor roughly followed the overall trends for general library usage by campus, though the fourth floor was slightly different in that CGU students surpassed Scripps students as the largest percentage, 25$\%$, of the floor population.\\
+
+
+However, these trends were different during Night Owl hours. First, it should be noted that during Night Owl hours, CUC percentages typically increased. CUC represents library staff, and a growth in percentage of individuals on each floor indicates that the total number of students on each floor was on average lower during these hours. However, institutional trends also display interesting information. On the first floor during Night Owl hours, Scripps had the highest percentage, consistent with data from overall library usage. However, on the second floor, CGU became the campus with the highest percentage of 22$\%$. On floor 3, Pomona had the highest percentage of 23$\%$. Finally, on floor four, Pomona students made up 44$\%$ of the population, CGU made up 29$\%$, while students from the remaining institutions made up 27$\%$ all together. 
+
+
+We can also attempt to look at our data from a traffic usage rather than counting the actual number of connections. We look at the graph below: 
+
+<<echo = FALSE, out.width='4in', fig.align='center', fig.show='hold'>>=
+barplot(as.matrix(locationTime), main="Average Usage (kbps) in library locations dependent on time",
+        xlab = "Locations in Library", ylab="Avg_Usage Mean (kbps)", beside=TRUE, 
+        col=terrain.colors(4))
+
+legend("topleft", c("Morning","Afternoon","Evening","NightOwl"), cex=0.6, 
+       fill=terrain.colors(4))
+@
+
+We took advantage of the fact that \textit{Folder} indicates different locations in library: floors one to four, and cafe. We also a typical day into four different time frames:
+\begin{itemize}
+\item Morning: 8 AM to 12 PM
+\item Afternoon: 12 PM to 6 PM
+\item Evening: 6 PM to 1 AM
+\item Night Owl: 1 AM to 8 AM
+\end{itemize}
+
+This method of breakdown can be applied to any dataset, regardless of whether it is finals or non-finals week. Since the library is not open during non-finals weeks, so we do not consider that time frame, and the data will show Night Owl as NAs (not availables). The figure above considers finals week. We can see some obvious, reasonable, yet interesting trends and behaviours.
+\begin{itemize}
+\item Evening is when the average usage is the highest across most floors.
+\item Disproportionate amount of wifi is used on the third floor during night owls.
+\item Disproportionate amount of wifi is used on the fourth floor during evenings.
+\item There is a sharp decrease in average wifi usage from evening to night owl for both the first floor and cafe (located in the first floor of Honnold).
+\item Third floor is the only place where the average wifi usage increases during night owls.
+\end{itemize}
+
+
+8:11 & data_201605$Folder == "Cafe", ]$Avg_Usage, na.rm = TRUE)
+Avg_Usage_Cafe_afternoon <- mean(data_201605[data_201605$Connect_Hour == 12:17 & data_201605$Folder == "Cafe", ]$Avg_Usage, na.rm = TRUE)
+Avg_Usage_Cafe_evening   <- mean(data_201605[data_201605$Connect_Hour == 18:24 & data_201605$Folder == "Cafe", ]$Avg_Usage, na.rm = TRUE)
+Avg_Usage_Cafe_nightowl  <- mean(data_201605[data_201605$Connect_Hour == 1:7 & 
+
+\subsection{\textbf{2.3 Linear Modeling}}
+
+Next we plan to examine duration of each connection and possible predictors of this response variable. Once we finish formatting the data, we will perform a stepwise regression to eliminate insignificant predictors from our linear model. We are particularly interested in seeing if connection duration is related to proximity to finals week, campus, or service set identifier. First, however, we will examine these predictors for collinearity. \\
+
+
+We will also examine differences between models created using different sets of data, for example data from the school year, from reading days and finals week, and from Night Owls hours.\\ 
+
+\end{document}
