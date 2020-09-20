@@ -491,4 +491,9 @@ Next we plan to examine duration of each connection and possible predictors of t
 
 We will also examine differences between models created using different sets of data, for example data from the school year, from reading days and finals week, and from Night Owls hours.\\ 
 
+
+\section{3. Conclusion}
+
+So what can we glean from all these charts and graphs? We can conclude that by usage, there is no significant difference between day hours and night hours. 
+
 \end{document}
