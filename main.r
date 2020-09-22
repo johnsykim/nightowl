@@ -496,4 +496,10 @@ We will also examine differences between models created using different sets of 
 
 So what can we glean from all these charts and graphs? We can conclude that by usage, there is no significant difference between day hours and night hours. 
 
+
+\section{4. Acknowledgements}
+
+We would like to thank Professor Talithia Williams for giving us an opportunity to study this libray data as well as guiding and teaching us the statistical foundation to undertake this project. We would also like to thank Sam Kome, Director of IT at the Claremont University Consortium, for his work to prepare the data and his willingness to help us at a level up and beyond. 
+\pagebreak
+
 \end{document}
